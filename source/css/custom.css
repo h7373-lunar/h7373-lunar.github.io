@@ -1,0 +1,16 @@
+#web_bg {
+  filter: brightness(1.12);
+  background-image: url('/img/background.jpg'),
+    linear-gradient(to right, #080d14, #263b4a 45%, #263b4a 55%, #080d14) !important;
+  background-size: contain, cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+[data-theme="dark"] #web_bg::before {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+#page-header.full_page::before {
+  background-color: transparent;
+}
