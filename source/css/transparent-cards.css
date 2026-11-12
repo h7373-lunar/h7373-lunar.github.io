@@ -1,0 +1,39 @@
+/* Keep the homepage header clear so the site background shows through. */
+#page-header.full_page::before {
+  background-color: transparent;
+}
+
+/* Butterfly uses this variable for article, page and sidebar cards. */
+:root,
+[data-theme="dark"] {
+  --card-bg: rgba(255, 255, 255, 0.8);
+}
+
+/* White cards need dark text even when dark mode is selected. */
+[data-theme="dark"] :is(.layout > div:first-child:not(.nc), .recent-post-item, .card-widget) {
+  --font-color: #4c4948;
+  --text-highlight-color: #34495e;
+  --toc-link-color: #666261;
+  --light-grey: #555;
+  color: var(--font-color);
+}
+
+/* 文章正文中的链接 */
+#article-container a {
+  color: #004182;
+  font-size: 1.05em;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* 鼠标移到链接上时 */
+#article-container a:hover ,
+.post-copyright a:hover {
+  color: #e65100;
+}
+.post-copyright a {
+  color: #0156ab;
+  font-size: 1em;
+  font-weight: 400;
+  text-decoration: none;
+}
