@@ -1,3 +1,32 @@
+/* Fit the portrait artwork on wide screens and blend its edges into the sky. */
+#web_bg {
+  background: linear-gradient(to bottom, #0d1218 0%, #101a25 45%, #385b71 83%, #121c2b 100%) !important;
+}
+
+#web_bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/img/background.jpg') center / auto 100% no-repeat;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  /* Artwork aspect ratio: 949 / 1334. */
+  -webkit-mask-size: calc(100vh * 0.7115) 100%;
+  mask-size: calc(100vh * 0.7115) 100%;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  #web_bg::after {
+    background-size: cover;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
 /* Keep the homepage header clear so the site background shows through. */
 #page-header.full_page::before {
   background-color: transparent;
